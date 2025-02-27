@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="myweb.net">
+        <table>
+            <tr>
+                <td><label for="username">Họ và tên:</label></td>
+                <td><input type="text" name="Username" id="username"></td>
+            </tr>
+            <tr>
+                <td><label for="dateofbirth">Ngày sinh:</label></td>
+                <td><input type="date" name="Dateofbirth" id="dateofbirth"></td>
+            </tr>
+            <tr>
+                <td><label>Giới tính:</label></td>
+                <td>
+                    <input type="radio" name="gender" id="male" value="Male">
+                    <label for="male">Nam</label>
+                    <input type="radio" name="gender" id="female" value="Female">
+                    <label for="female">Nữ</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="phone">Số điện thoại:</label></td>
+                <td><input type="tel" name="Phone" id="phone"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" name="Email" id="email"></td>
+            </tr>
+            <tr>
+                <td><label for="company">Tên công ty:</label></td>
+                <td><input type="text" name="Company" id="company"></td>
+            </tr>
+            <tr>
+                <td><label for="role">Vai trò trong công ty:</label></td>
+                <td>
+                    <select name="Role" id="role">
+                        <option value="CEO">Giám đốc điều hành (CEO)</option>
+                        <option value="Manager">Quản lý</option>
+                        <option value="Employee">Nhân viên</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="companysize">Quy mô công ty:</label></td>
+                <td>
+                    <select name="CompanySize" id="companysize">
+                        <option value="small">Doanh nghiệp nhỏ</option>
+                        <option value="medium">Doanh nghiệp vừa</option>
+                        <option value="large">Doanh nghiệp lớn</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="industry">Ngành nghề công ty:</label></td>
+                <td><input type="text" name="Industry" id="industry"></td>
+            </tr>
+            <tr>
+                <td><label for="reason">Lý do tham gia câu lạc bộ:</label></td>
+                <td><textarea name="Reason" id="reason"></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="experience">Kinh nghiệm lãnh đạo:</label></td>
+                <td><textarea name="Experience" id="experience"></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="goal">Mục tiêu khi tham gia câu lạc bộ:</label></td>
+                <td><textarea name="Goal" id="goal"></textarea></td>
+            </tr>
+            <tr>
+                <td><label>Chương trình sự kiện mong muốn tham gia:</label></td>
+                <td>
+                    <input type="checkbox" name="Event" id="networking" value="Networking">
+                    <label for="networking">Networking</label>
+                    <input type="checkbox" name="Event" id="workshops" value="Workshops">
+                    <label for="workshops">Workshops</label>
+                    <input type="checkbox" name="Event" id="conference" value="Conference">
+                    <label for="conference">Hội thảo</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="newsletter">Đăng ký nhận bản tin:</label></td>
+                <td>
+                    <input type="checkbox" name="Newsletter" id="newsletter">
+                    <label for="newsletter">Có</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Đăng ký hội viên</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
