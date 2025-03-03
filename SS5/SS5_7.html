@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(221, 218, 218);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-weight: bold;
+        }
+        h2 {
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        table {
+            border: 1px solid rgb(221, 218, 218); /* Border matches background */
+            border-collapse: collapse;
+            width: 90%;
+            margin: 10px auto;
+            background-color: white;
+        }
+        thead {
+            background-color: rgb(73, 73, 240);
+            color: white;
+        }
+        td, th {
+            border: 1px solid rgb(221, 218, 218); /* Border color matches background */
+            padding: 10px;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        button {
+            padding: 10px;
+            width: 70px;
+            cursor: pointer;
+            font-weight: bold;
+            border: 1px solid black;
+        }
+        .button1 {
+            background-color: rgb(39, 177, 39);
+            color: white;
+        }
+        .button2 {
+            background-color: rgb(247, 223, 9);
+            color: black;
+        }
+        .button3 {
+            background-color: rgb(255, 0, 0);
+            color: white;
+        }
+        tbody tr:nth-child(odd) {
+        background-color: rgb(228, 223, 223);
+    }
+    </style>
+</head>
+<body>
+    <h2>ARTICEL MANAGEMENT TABLE</h2>
+    <table>
+        <thead>
+            <td>ID</td>
+            <td>TITLE</td>
+            <td>AUTHOR</td>
+            <td>PUBLISHED DATE</td>
+            <td>ACTIONS</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Introduction to CSS</td>
+                <td>John Doe</td>
+                <td>2024-02-10</td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="button1">View</button>
+                        <button class="button2">Edit</button>
+                        <button class="button3">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Understanding JavaScript</td>
+                <td>Jane Smith</td>
+                <td>2024-02-22</td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="button1">View</button>
+                        <button class="button2">Edit</button>
+                        <button class="button3">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Web Development Basics</td>
+                <td>Mike Johnson</td>
+                <td>2023-12-15</td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="button1">View</button>
+                        <button class="button2">Edit</button>
+                        <button class="button3">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Responsive Design Techniques</td>
+                <td>Sarah Lee</td>
+                <td>2023-11-30</td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="button1">View</button>
+                        <button class="button2">Edit</button>
+                        <button class="button3">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>SEO Best Practices</td>
+                <td>Christ Brown</td>
+                <td>2023-10-18</td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="button1">View</button>
+                        <button class="button2">Edit</button>
+                        <button class="button3">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
