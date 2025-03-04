@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: arial, sans-serif;
+            font-weight: bold;
+        }
+        .header1{
+            background-color: rgb(31, 209, 31);
+            padding: 5px;
+            margin: 0;
+            border: 1px solid black;
+        }
+        .head{
+            text-align: center;
+            color: white;
+        }
+        .para1{
+            word-spacing: 10px;
+            font-size: 15px;
+        }
+        .container{
+            display: flex;
+            gap: 10px;
+        }
+        .div1{
+            background-color: rgb(225, 225, 225);
+            padding: 10px;
+            width: 20%;
+            margin-top: 10px;
+            margin-left: 20px;
+            border: 1px solid rgb(184, 184, 184);
+            height: 400px;
+        }
+        .img1{
+            width: 200px;
+            height: 100px;
+        }
+        .footer{
+            background-color: rgb(46, 46, 46);
+            text-align: center;
+            color: white;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header1">
+        <div class="head">
+            <h3>MY BLOG</h3>
+            <div class="para1">
+                <p>
+                    <a href="idk.com">Home</a>
+                    <a href="idk.com">Categories</a>
+                    <a href="idk.com">About</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="div1">
+            <h4>Chuyên mục</h4>
+            <ul>
+                <li><a href="idk.com">Css</a></li>
+                <li><a href="idk.com">JavaScript</a></li>
+                <li><a href="idk.com">HTML</a></li>
+            </ul>
+        </div>
+        <div class="div2">
+           <h4 style="margin-top: 40px;">Bài viết 1</h4>
+           <img class="img1" src="./imgsource/JS.png" alt="">
+           <p style="font-size: smaller; font-weight: normal;">Đây là nội dung tóm tắt của bài viết 1</p>
+            <hr style="width: 1000px; border: 1px solid rgba(0, 0, 0, 0.2);">
+            <div class="div3">
+                <h4>Bài viết 2</h4>
+                <img class="img1" src="./imgsource/JS2.png" alt="">
+           <p style="font-size: smaller; font-weight: normal;">Đây là nội dung tóm tắt của bài viết 2</p>
+            </div>
+        </div>
+    </div> 
+    <div class="footer">
+        <p style="font-size: 12px;">Liên hệ: email@example.com</p>
+    </div>   
+</body>
+</html>

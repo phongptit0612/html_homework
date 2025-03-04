@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            margin: 0;
+        }
+        .gray-box {
+            background-color: rgb(39, 38, 38);
+            padding: 10px 15px;
+        }
+        .content1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            color: white;
+        }
+        .content2 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px; 
+        }
+        .nav1 {
+            font-size: 14px;
+            display: flex;
+            gap: 20px; 
+        } 
+        .light-gray {
+            background-color: rgb(242, 239, 239);
+            padding: 30px 40px;
+        }
+        .img1 {
+            width: 150px; 
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgb(11, 11, 11);
+        }
+        .project-container {
+            padding-left: 20px; 
+            margin-top: 10px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between; 
+            gap: 10px;
+            white-space: nowrap;
+        }
+        button {
+            background-color: rgb(39, 38, 38);
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 15px;
+            width:80% ;
+            text-align: center;
+        }     
+        .footer {
+            background-color: rgb(242, 239, 239);
+            text-align: center; 
+            padding: 15px 0; 
+            font-size: 14px;
+            font-weight: bold; 
+            margin-top: 20px;
+        }
+        .footer a {
+            text-decoration: none; 
+            color: black;
+            font-weight: bold;
+        }
+        .footer a:hover {
+        text-decoration: underline; 
+        }
+    </style>
+</head>
+<body>
+    <div class="gray-box">
+        <div class="content1">
+            <h3>Portfolio của TSUBASA</h3>
+            <div class="nav1">
+                <p>Home</p>
+                <p>Projects</p>
+                <p>Contact</p>
+            </div>
+        </div>
+    </div>
+    <div class="light-gray">
+        <div class="content2">
+            <img src="./imgsource/Innue Decade.webp" alt="" class="img1">
+            <p>Xin chào! Tôi là TSUBASA, một nhà phát triển web sáng tạo</p>
+        </div>
+    </div>
+    <div class="project-container">
+        <p>Dự án của tôi</p>
+        <div class="button-container">
+            <button>Dự án 1</button>
+            <button>Dự án 2</button>
+            <button>Dự án 3</button>
+            <button>Dự án 4</button>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Kết nối với tôi trên <a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
+    </div>
+</body>
+</html>

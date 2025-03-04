@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(236, 232, 232);
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .box {
+            background-color: white;
+            width: 250px; 
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        input {
+            width: 95%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            color: white;
+            background-color: rgb(64, 64, 250);
+            width: 102%;
+            border-radius: 3px;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Đăng Ký</h2>
+        <label for="name">Tên:</label> <br>
+        <input type="text" id="name"> <br>
+        <label for="email">Email:</label> <br>
+        <input type="email" id="email"> <br>
+        <label for="password">Mật Khẩu:</label> <br>
+        <input type="password" id="password"> <br>
+        <button type="submit">Đăng Ký</button>
+    </div>
+</body>
+</html>
