@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            background-color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            border-left: 5px solid rgb(252, 164, 0);
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .text-overlay {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            background: black;
+            padding: 5px;
+        }
+        .footer-news {
+            margin-top: 10px;
+            max-width: 400px;
+        }
+        .news-item {
+            padding: 15px 0;
+            border-bottom: 1px solid rgb(200, 200, 200);
+            font-size: 16px;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>BEAUTY & FASHION</h1>
+    </div>
+    <div class="image-container">
+        <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/11/8/971838/HEN0951-Copy.jpg" alt="Fashion News">
+        <div class="text-overlay">
+            Nhìn ảnh cầu hôn của H'Hen Niê mới phát hiện phong thủy không đùa được đâu!
+        </div>
+    </div>
+    <div class="footer-news">
+        <div class="news-item">Netizen lo lắng: Hương Giang liệu có nặng nổi 35kg?</div>
+        <div class="news-item">Giờ mới biết tiêu chuẩn của Thiều Bảo Trâm, dân tình vào bình luận gấp</div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .accordion {
+            width: 500px;
+            background: white;
+            border: 1px solid #ddd;
+        }
+        .accordion-item {
+            border-bottom: 1px solid #ddd;
+        }
+        .accordion-header {
+            background: white;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-header:hover {
+            background: #f0f0f0;
+        }
+        .accordion-content {
+            display: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+        }
+        input[type="checkbox"] {
+            display: none;
+        }
+        input[type="checkbox"]:checked + .accordion-content {
+            display: block;
+        }
+        .accordion-content b {
+            font-weight: bold;
+        }
+        .accordion-content .highlight {
+            color: #dc3545;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion">
+        <div class="accordion-item">
+            <label class="accordion-header" for="item1">
+                Accordion Item #1 <span>▼</span>
+            </label>
+            <input type="checkbox" id="item1">
+            <div class="accordion-content">Nội dung của mục 1.</div>
+        </div>
+        <div class="accordion-item">
+            <label class="accordion-header" for="item2">
+                Accordion Item #2 <span>▼</span>
+            </label>
+            <input type="checkbox" id="item2">
+            <div class="accordion-content">
+                <b>This is the second item's accordion body.</b> It is hidden by default, until the collapse plugin adds 
+                the appropriate classes that we use to style each element. These classes control the overall 
+                appearance, as well as the showing and hiding via CSS transitions. You can modify any of this 
+                with custom CSS or overriding our default variables. It's also worth noting that just about any 
+                HTML can go within the <span class="highlight">.accordion-body</span>, though the transition does limit overflow.
+            </div>
+        </div>
+        <div class="accordion-item">
+            <label class="accordion-header" for="item3">
+                Accordion Item #3 <span>▼</span>
+            </label>
+            <input type="checkbox" id="item3">
+            <div class="accordion-content">Nội dung của mục 3.</div>
+        </div>
+    </div>
+
+</body>
+</html>
