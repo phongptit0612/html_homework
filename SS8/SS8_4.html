@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balanced Rotated Squares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+        hr {
+            width: 10%;
+            margin-left: 0;
+            border: none;
+            border-top: 2px solid red;
+        }
+        .main {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 20px;
+        }
+        .box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .square-container {
+            width: 90px;  /* Controls the overall size */
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .square {
+            width: 70px;
+            height: 70px;
+            border: 2px solid lightgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(45deg);
+            position: relative;
+        }
+        .icon {
+            position: absolute;
+            transform: rotate(-45deg); /* Rotates the icon back to normal */
+            font-size: 24px;
+            color: rgb(252, 164, 0);
+        }
+        .text {
+            font-weight: normal;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h3>Erat Lacinia</h3>
+        <hr>
+    </div>
+    <div class="main">
+        <div class="box">
+            <div class="square-container">
+                <div class="square"><span class="icon">💎</span></div>
+            </div>
+            <div>
+                <h4>Porttitor ullamcorper</h4>
+                <p class="text">Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum.</p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="square-container">
+                <div class="square"><span class="icon">✈️</span></div>
+            </div>
+            <div>
+                <h4>Sapien vereeros</h4>
+                <p class="text">Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum.</p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="square-container">
+                <div class="square"><span class="icon">🚀</span></div>
+            </div>
+            <div>
+                <h4>Quam lorem ipsum</h4>
+                <p class="text">Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum.</p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="square-container">
+                <div class="square"><span class="icon">📊</span></div>
+            </div>
+            <div>
+                <h4>Sed magna finibus</h4>
+                <p class="text">Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
