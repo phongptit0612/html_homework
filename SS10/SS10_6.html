@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: white;
+            padding: 20px;
+        }
+        .container0 {
+            position: relative; 
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .container0 img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .container0 button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 5px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .para {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            color: white;
+            max-width: 700px;
+        }
+
+        .para h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            max-width: 800px;
+            margin: auto;
+            margin-top: 20px; 
+        }
+        .pagination-arrow {
+            background-color: rgb(62, 62, 62);
+            color: rgb(255, 253, 253);
+            font-size: 16px;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .pagination-active {
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .pagination-number {
+            background: none;
+            color: gray;
+            font-size: 16px;
+            width: 30px;
+            height: 30px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container0">
+        <img src="ronaldo goat.jpg" alt="">
+        <button>Football</button>
+        <div class="para">
+            <p>Agence France-Presse - 10th July 2018</p>
+            <h2>CRISTIANO RONALDO LEAVING REAL MADRID TEAM <br>
+                REAL MADRID, CLUB CONFIRMS</h2>
+            <p>The EuroLeague Finals Top Scorer is the individual award for the player <br>
+            that gained the highest points in the EuroLeague Finals.</p>
+        </div>
+    </div>
+    <div class="container">
+        <button class="pagination-arrow">←</button>
+        <button class="pagination-active">1</button>
+        <button class="pagination-number">2</button>
+        <button class="pagination-number">3</button>
+        <button class="pagination-number">4</button>
+        <button class="pagination-arrow">→</button>
+    </div>    
+</body>
+</html>
