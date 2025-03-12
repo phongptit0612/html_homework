@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimized Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header,
+        .footer {
+            background-color: rgb(255, 37, 37);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .footer {
+            background-color: rgb(31, 31, 196);
+            margin-top: 10px;
+        }
+
+        .main {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .box1,
+        .box3 {
+            background-color: rgb(3, 231, 3);
+            color: white;
+            flex: 1;
+            min-height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .box3 {
+            background-color: pink;
+        }
+
+        .box2 {
+            background-color: rgb(255, 255, 42);
+            border-radius: 10px;
+            flex: 2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .main {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .box1,
+            .box3 {
+                width: 90%;
+                min-height: 100px;
+            }
+
+            .box2 {
+                width: 100%;
+                min-height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2>Header</h2>
+    </div>
+    <div class="main">
+        <div class="box1">
+            <h2>Sidebar 1</h2>
+        </div>
+        <div class="box2">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita modi repellat laboriosam nam id
+                voluptatibus ab quae, quaerat accusamus voluptatem, cumque hic, repudiandae laudantium amet
+                exercitationem numquam. Quaerat obcaecati deleniti quae ut repellendus praesentium modi illum corporis
+                incidunt, nobis molestias inventore fugit voluptatibus tempora rem necessitatibus ipsam. Odio aperiam
+                deserunt quia, enim voluptatem doloremque nobis exercitationem eum, quis, voluptate ullam minus quidem
+                eos consectetur itaque! Soluta non similique quod quae odit? Possimus mollitia nemo itaque perferendis
+                perspiciatis voluptates nostrum consequuntur saepe, aliquid, repellendus eligendi cumque explicabo
+                adipisci aperiam velit earum repellat autem sequi? Asperiores soluta, tempore dolor suscipit enim
+                possimus!
+            </p>
+        </div>
+        <div class="box3">
+            <h2>Sidebar 2</h2>
+        </div>
+    </div>
+    <div class="footer">
+        <h2>Footer</h2>
+    </div>
+</body>
+
+</html>

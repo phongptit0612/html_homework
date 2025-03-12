@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .header {
+            display: flex;
+            gap: 10px;
+        }
+        .box0 {
+            width: 100%;
+            height: 70px;
+            background-color: orange;
+        }
+        .boxes {
+            background-color: rgb(123, 214, 123);
+            margin-top: 20px;
+            width: 100%;
+            height: 200px;
+        }
+        .body1 {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .box1 {
+            background-color: rgb(90, 90, 251);
+            width: 100%;
+            height: 150px;
+        }
+        .footer {
+            display: flex;
+            gap: 10px;
+        }
+        .box2 {
+            background-color: rgb(220, 220, 220);
+            margin-top: 20px;
+            width: 100%;
+            height: 105px;
+        }
+        @media (max-width: 1200px) and (min-width: 768px) {
+            .header {
+                flex-direction: column;
+            }
+            .box0 {
+                height: 60px;
+            }
+            .body1 {
+                flex-direction: column;
+            }
+            .footer {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+            }
+            .body1 {
+                flex-direction: column;
+            }
+            .footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="box0"></div>
+        <div class="box0"></div>
+    </div>
+    <div class="boxes"></div>
+    <div class="body1">
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+    </div>
+    <div class="footer">
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
