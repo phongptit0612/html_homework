@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn số ngẫu nhiên</title>
+</head>
+<body>
+    <script>
+        let num1 = Number(prompt("Nhập số thứ nhất: "));
+        let num2 = Number(prompt("Nhập số thứ hai: "));
+
+        let min = Math.min(num1, num2);
+        let max = Math.max(num1, num2);
+
+        let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        alert("Số ngẫu nhiên trong khoảng " + min + " đến " + max + " là: " + randomNum);
+    </script>
+</body>
+</html>
