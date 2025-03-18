@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let r = Number(prompt("Nhập bán kính đáy:"));
+        let h = Number(prompt("Nhập chiều cao:"));
+
+        let chuViDay = 2 * Math.PI * r;
+        let dienTichXungQuanh = chuViDay * h;
+        let dienTichToanPhan = dienTichXungQuanh + 2 * Math.PI * r * r;
+        let theTich = Math.PI * r * r * h;
+
+        alert(`Chu vi đáy: ${chuViDay.toFixed(2)}`);
+        alert(`Diện tích xung quanh: ${dienTichXungQuanh.toFixed(2)}`);
+        alert(`Diện tích toàn phần: ${dienTichToanPhan.toFixed(2)}`);
+        alert(`Thể tích: ${theTich.toFixed(2)}`);
+    </script>
+</body>
+</html>

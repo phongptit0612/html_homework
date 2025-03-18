@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let r = Number(prompt("Nhập bán kính của hình cầu:"));
+
+        let theTich = (4 / 3) * Math.PI * Math.pow(r, 3);
+        let dienTichBeMat = 4 * Math.PI * Math.pow(r, 2);
+        let chuViLonNhat = 2 * Math.PI * r;
+
+        alert(`Thể tích hình cầu: ${theTich.toFixed(2)}`);
+        alert(`Diện tích bề mặt: ${dienTichBeMat.toFixed(2)}`);
+        alert(`Chu vi lớn nhất: ${chuViLonNhat.toFixed(2)}`);
+    </script>
+</body>
+</html>
