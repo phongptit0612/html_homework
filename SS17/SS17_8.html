@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính số ngày chênh lệch</title>
+</head>
+<body>
+    <script>
+        let date1 = prompt("Nhập ngày thứ nhất (YYYY-MM-DD):").split("-");
+        let date2 = prompt("Nhập ngày thứ hai (YYYY-MM-DD):").split("-");
+        let day1 = Number(date1[2]); 
+        let day2 = Number(date2[2]); 
+        let difference = Math.abs(day2 - day1); 
+        document.write("Độ lệch là " + difference + " ngày.");
+    </script>
+</body>
+</html>

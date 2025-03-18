@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải phương trình bậc hai</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt("Nhập hệ số a: "));
+        let b = Number(prompt("Nhập hệ số b: "));
+        let c = Number(prompt("Nhập hệ số c: "));
+        let delta = b * b - 4 * a * c;
+        let result;
+        if (delta > 0) {
+            let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            result = `Phương trình có hai nghiệm: x1 = ${x1}, x2 = ${x2}`;
+        } else if (delta === 0) {
+            let x = -b / (2 * a);
+            result = `Phương trình có nghiệm kép: x = ${x}`;
+        } else {
+            result = "Phương trình vô nghiệm";
+        }
+        document.write(result);
+    </script>
+</body>
+</html>
