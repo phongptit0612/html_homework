@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let toan = Number(prompt("Nhập điểm Toán:"));
+        let van = Number(prompt("Nhập điểm Văn:"));
+        let anh = Number(prompt("Nhập điểm Anh:"));
+        let avg = (toan + van + anh) / 3;
+        let grade;
+
+        if (avg >= 8) {
+            grade = "Giỏi";
+        } else if (avg >= 6.5) {
+            grade = "Khá";
+        } else if (avg >= 5) {
+            grade = "Trung bình";
+        } else {
+            grade = "Yếu";
+        }
+
+        alert(`Điểm trung bình: ${avg.toFixed(2)}\nXếp loại: ${grade}`);
+    </script>
+</body>
+</html>

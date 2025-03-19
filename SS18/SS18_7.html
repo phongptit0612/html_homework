@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt("Nhập số A: "));
+        let b = Number(prompt("Nhập số B: "));
+
+        let choice = prompt("Nhập phép tính (+, -, *, /): ");
+
+        let result;
+
+        switch (choice) {
+            case "+":
+                result = a + b;
+                break;
+            case "-":
+                result = a - b;
+                break;
+            case "*":
+                result = a * b;
+                break;
+            case "/":
+                result = b !== 0 ? a / b : "Không thể chia cho 0";
+                break;
+            default:
+                result = "Phép toán không hợp lệ!";
+        }
+        alert("Kết quả là: " + result);
+    </script>
+</body>
+</html>

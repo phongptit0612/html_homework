@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let hours = Number(prompt("Nhập giờ (0-23):"));
+        let minutes = Number(prompt("Nhập phút (0-59):"));
+        let seconds = Number(prompt("Nhập giây (0-59):"));
+
+        let period = hours >= 12 ? "PM" : "AM"; 
+        let hour12 = hours % 12 || 12; 
+
+        let formattedTime = `${String(hour12).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} ${period}`;
+        alert("Thời gian theo định dạng 12 giờ: " + formattedTime);
+    </script>
+</body>
+</html>
