@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange</title>
+</head>
+<body>
+    <script>
+        let amount = Number(prompt("Enter the amount of money: "));
+
+        let currencyType = prompt("Enter the currency type of the amount (USD or VND):").toUpperCase();
+
+        if (currencyType !== "USD" && currencyType !== "VND") {
+            alert("Invalid currency type. Please enter either 'USD' or 'VND'.");
+        } else {
+            let option1 = prompt("Enter 1 to convert to VND, 2 to convert to USD:");
+
+            if (currencyType === "USD" && option1 === "1") {
+                let vnd = amount * 23000;
+                alert("After exchange: " + amount + " USD is " + vnd + " VND.");
+            } else if (currencyType === "VND" && option1 === "2") {
+                let usd = amount / 23000;
+                alert("After exchange: " + amount + " VND is " + usd + " USD.");
+            } else if ((currencyType === "USD" && option1 === "2") || (currencyType === "VND" && option1 === "1")) {
+                alert("Invalid option. You cannot convert " + currencyType + " to the same currency.");
+            } else {
+                alert("Invalid option.");
+            }
+        }
+    </script>
+</body>
+</html>

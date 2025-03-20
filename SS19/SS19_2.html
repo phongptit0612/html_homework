@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Input</title>
+</head>
+<body>
+    <script>
+        let userInput = prompt("Enter something:");
+
+        if (/^[a-zA-Z]+$/.test(userInput)) {
+            alert("Ký tự " + userInput + " là chữ cái");
+        } else {
+            alert("Không phải chữ cái!");
+        }
+    </script>
+</body>
+</html>
