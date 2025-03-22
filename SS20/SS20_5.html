@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Lũy Thừa</title>
+</head>
+<body>
+    <script>
+        let a = prompt("Nhập số a:");
+        let b = prompt("Nhập số b:");
+
+        // Chuyển đổi sang số
+        a = Number(a);
+        b = Number(b);
+
+        // Kiểm tra nếu giá trị nhập vào không phải số
+        if (isNaN(a) || isNaN(b)) {
+            alert("Không hợp lệ");
+        } else {
+            let result = 1;
+
+            // Tính a^b bằng vòng lặp for
+            for (let i = 0; i < b; i++) {
+                result *= a;
+            }
+
+            alert("Kết quả: " + result);
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Lũy Thừa</title>
+</head>
+<body>
+    <script>
+        let a = prompt("Nhập số a:");
+        let b = prompt("Nhập số b:");
+        a = Number(a);
+        b = Number(b);
+
+        if (isNaN(a) || isNaN(b)) {
+            alert("Không hợp lệ");
+        } else {
+            let result = 1;
+            for (let i = 0; i < b; i++) {
+                result *= a;
+            }
+            alert("Kết quả: " + result);
+        }
+    </script>
+</body>
+</html>

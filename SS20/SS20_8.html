@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiển thị n số nguyên tố</title>
+</head>
+<body>
+    <script>
+        let n = prompt("Nhập số lượng số nguyên tố cần hiển thị:");
+        n = Number(n);
+
+        if (isNaN(n) || n < 1) {
+            alert("Không hợp lệ");
+        } else {
+            let count = 0;
+            let num = 2;
+            let result = "";
+
+            while (count < n) {
+                let isPrime = true;
+                for (let i = 2; i * i <= num; i++) {
+                    if (num % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    result += num + " ";
+                    count++;
+                }
+                num++;
+            }
+            alert(result);
+        }
+    </script>
+</body>
+</html>
