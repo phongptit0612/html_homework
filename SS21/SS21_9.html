@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Checker</title>
+</head>
+<body>
+    <script>
+        let number = Number(prompt("Nhập một số nguyên bất kỳ:"));
+        if (isNaN(number) || !Number.isInteger(number)) {
+            alert("Vui lòng nhập một số nguyên hợp lệ!");
+        } else {
+            let isPrime = true;
+
+            if (number <= 1) {
+                isPrime = false; 
+            } else {
+                for (let i = 2; i <= Math.sqrt(number); i++) {
+                    if (number % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+            }
+            if (isPrime) {
+                document.write(`${number} là số nguyên tố.`);
+            } else {
+                document.write(`${number} không phải là số nguyên tố.`);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisors Finder</title>
+</head>
+<body>
+    <script>
+        let number = Number(prompt("Nhập một số nguyên bất kỳ:"));
+
+        if (isNaN(number) || !Number.isInteger(number)) {
+            alert("Vui lòng nhập một số nguyên hợp lệ!");
+        } else {
+            document.write(`Các ước của số ${number} là:<br>`);
+            
+            for (let i = 1; i <= Math.abs(number); i++) {
+                if (number % i === 0) {
+                    document.write(i + "<br>");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

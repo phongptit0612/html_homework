@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num1 = parseInt(prompt("Enter the first number:"));
+        let num2 = parseInt(prompt("Enter the second number:"));
+        let num3 = parseInt(prompt("Enter the third number:"));
+        let num4 = parseInt(prompt("Enter the fourth number:"));
+        let num5 = parseInt(prompt("Enter the fifth number:"));
+
+        let odd = 0;
+        let even = 0;
+
+        if (num1 % 2 === 0) even++;
+        else odd++;
+        if (num2 % 2 === 0) even++;
+        else odd++;
+        if (num3 % 2 === 0) even++;
+        else odd++;
+        if (num4 % 2 === 0) even++;
+        else odd++;
+        if (num5 % 2 === 0) even++;
+        else odd++;
+
+        alert(`Number of odd numbers: ${odd}\nNumber of even numbers: ${even}`);
+    </script>
+</body>
+</html>

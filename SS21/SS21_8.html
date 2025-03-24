@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armstrong Numbers</title>
+</head>
+<body>
+    <script>
+        document.write("Các số Armstrong có 3 chữ số là:<br>");
+
+        for (let num = 100; num <= 999; num++) {
+            let hundreds = Math.floor(num / 100); 
+            let tens = Math.floor((num % 100) / 10); 
+            let units = num % 10; 
+
+            let sumOfCubes = Math.pow(hundreds, 3) + Math.pow(tens, 3) + Math.pow(units, 3);
+
+            if (sumOfCubes === num) {
+                document.write(num + "<br>");
+            }
+        }
+    </script>
+</body>
+</html>

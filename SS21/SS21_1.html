@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd Number Sum</title>
+</head>
+<body>
+    <script>
+        let num1 = Number(prompt("Nhập số thứ nhất:"));
+        let num2 = Number(prompt("Nhập số thứ hai:"));
+        let num3 = Number(prompt("Nhập số thứ ba:"));
+        let num4 = Number(prompt("Nhập số thứ tư:"));
+        let num5 = Number(prompt("Nhập số thứ năm:"));
+
+        if (isNaN(num1) || isNaN(num2) || isNaN(num3) || isNaN(num4) || isNaN(num5)) {
+            alert("Không hợp lệ");
+        } else {
+            let sumOdd = 0;
+
+            if (num1 % 2 !== 0) sumOdd += num1;
+            if (num2 % 2 !== 0) sumOdd += num2;
+            if (num3 % 2 !== 0) sumOdd += num3;
+            if (num4 % 2 !== 0) sumOdd += num4;
+            if (num5 % 2 !== 0) sumOdd += num5;
+            alert(`Tổng các số lẻ là: ${sumOdd}`);
+        }
+    </script>
+</body>
+</html>

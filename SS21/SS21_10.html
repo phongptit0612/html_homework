@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First N Prime Numbers</title>
+</head>
+<body>
+    <script>
+        let n = Number(prompt("Nhập số nguyên n bất kỳ:"));
+
+        if (isNaN(n) || !Number.isInteger(n) || n <= 0) {
+            alert("Vui lòng nhập một số nguyên dương hợp lệ!");
+        } else {
+            document.write(`Các số nguyên tố đầu tiên là:<br>`);
+            let count = 0; 
+            let num = 2; 
+            while (count < n) {
+                let isPrime = true;
+                for (let i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    document.write(num + "<br>");
+                    count++;
+                }
+                num++;
+            }
+        }
+    </script>
+</body>
+</html>

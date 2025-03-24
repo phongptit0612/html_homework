@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Interest Calculator</title>
+</head>
+<body>
+    <script>
+        let principal = Number(prompt("Nhập số tiền gửi ban đầu (VND):"));
+        let monthlyRate = Number(prompt("Nhập lãi suất tháng (%):"));
+        let months = Number(prompt("Nhập số tháng gửi:"));
+
+        if (isNaN(principal) || principal <= 0 || isNaN(monthlyRate) || monthlyRate <= 0 || isNaN(months) || months <= 0) {
+            alert("Vui lòng nhập các giá trị hợp lệ!");
+        } else {
+            monthlyRate = monthlyRate / 100;
+            let totalAmount = principal * Math.pow((1 + monthlyRate), months);
+            let interest = totalAmount - principal;
+
+            document.write(`Số tiền lãi sau ${months} tháng là: ${interest.toFixed(2)} VND<br>`);
+            document.write(`Tổng số tiền nhận được sau ${months} tháng là: ${totalAmount.toFixed(2)} VND`);
+        }
+    </script>
+</body>
+</html>

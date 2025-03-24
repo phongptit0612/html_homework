@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Equation Solver</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt("Nhập hệ số a:"));
+        let b = Number(prompt("Nhập hệ số b:"));
+        let c = Number(prompt("Nhập hệ số c:"));
+
+        if (a === 0) {
+            alert("Đây không phải là phương trình bậc 2.");
+        } else {
+            let discriminant = b * b - 4 * a * c;
+
+            if (discriminant < 0) {
+                alert("Phương trình vô nghiệm.");
+            } else if (discriminant === 0) {
+                let x = -b / (2 * a);
+                alert(`Phương trình có nghiệm kép: x1 = x2 = ${x}`);
+            } else {
+                let x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                let x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                alert(`Phương trình có 2 nghiệm phân biệt: x1 = ${x1}, x2 = ${x2}`);
+            }
+        }
+    </script>
+</body>
+</html>
