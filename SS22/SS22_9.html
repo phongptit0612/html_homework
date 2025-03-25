@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Duplicates and Sort</title>
+</head>
+<body>
+    <script>
+        let array = [2, 1, 7, 1, 1, 8, 6, 2, 2, 7];
+        let uniqueArray = [...new Set(array)];
+        uniqueArray.sort((a, b) => a - b);
+        document.write(`Mảng sau khi loại bỏ phần tử trùng nhau và sắp xếp tăng dần: [${uniqueArray}]`);
+    </script>
+</body>
+</html>

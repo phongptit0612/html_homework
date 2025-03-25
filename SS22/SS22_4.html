@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Largest Number</title>
+</head>
+<body>
+    <script>
+        let input = prompt("Nhập dãy số bất kỳ:");
+        if (!/^\d+$/.test(input)) {
+            alert("Dãy số không hợp lệ");
+        } else {
+            let numberArray = input.split("").map(Number);
+            let maxNumber = Math.max(...numberArray);
+            document.write(`${maxNumber} là số lớn nhất trong dãy số`);
+        }
+    </script>
+</body>
+</html>

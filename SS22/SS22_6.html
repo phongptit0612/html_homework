@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = [1, 2, 3, 4, 5, 1, 2, 2, 6, 4];
+
+        let one = 0;
+        let two = 0;
+        let five = 0;
+
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == 1) {
+                one++;
+            } else if (array[i] == 2) {
+                two++;
+            } else if (array[i] == 5) {
+                five++;
+            }
+        }
+        console.log("1 appear " + one + " times");
+        console.log("2 appear " + two + " times");
+        console.log("5 appear " + five + " times");
+    </script>
+</body>
+</html>

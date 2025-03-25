@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Management Menu</title>
+</head>
+<body>
+    <script>
+        let array = []; 
+        while (true) {
+            let choice = prompt(
+                "MENU\n\n" +
+                "1. Nhập vào mảng\n" +
+                "2. Hiển thị mảng\n" +
+                "3. Thêm phần tử\n" +
+                "4. Sửa phần tử\n" +
+                "5. Xóa phần tử\n" +
+                "6. Thoát\n\n" +
+                "Lựa chọn của bạn:"
+            );
+
+            switch (choice) {
+                case "1": 
+                    let input = prompt("Nhập các phần tử của mảng, cách nhau bằng dấu phẩy:");
+                    array = input.split(",").map(item => item.trim());
+                    alert("Mảng đã được nhập thành công!");
+                    break;
+
+                case "2": 
+                    if (array.length === 0) {
+                        alert("Mảng hiện đang trống.");
+                    } else {
+                        alert(`Mảng hiện tại: [${array.join(", ")}]`);
+                    }
+                    break;
+
+                case "3": 
+                    let newElement = prompt("Nhập phần tử muốn thêm:");
+                    array.push(newElement);
+                    alert(`Đã thêm phần tử "${newElement}" vào mảng.`);
+                    break;
+
+                case "4": 
+                    let indexToEdit = Number(prompt(`Nhập vị trí (index) muốn sửa (0 đến ${array.length - 1}):`));
+                    if (indexToEdit >= 0 && indexToEdit < array.length) {
+                        let newValue = prompt(`Nhập giá trị mới cho phần tử tại vị trí ${indexToEdit}:`);
+                        array[indexToEdit] = newValue;
+                        alert(`Đã sửa phần tử tại vị trí ${indexToEdit} thành "${newValue}".`);
+                    } else {
+                        alert("Vị trí không hợp lệ.");
+                    }
+                    break;
+
+                case "5": 
+                    let indexToDelete = Number(prompt(`Nhập vị trí (index) muốn xóa (0 đến ${array.length - 1}):`));
+                    if (indexToDelete >= 0 && indexToDelete < array.length) {
+                        let deletedElement = array.splice(indexToDelete, 1);
+                        alert(`Đã xóa phần tử "${deletedElement}" khỏi mảng.`);
+                    } else {
+                        alert("Vị trí không hợp lệ.");
+                    }
+                    break;
+
+                case "6":
+                    alert("Thoát chương trình.");
+                    break;
+
+                default: 
+                    alert("Lựa chọn không hợp lệ. Vui lòng thử lại.");
+            }
+            if (choice === "6") {
+                break; 
+            }
+        }
+    </script>
+</body>
+</html>
