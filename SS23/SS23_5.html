@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Nhập số phần tử của mảng:"));
+
+        if (n < 0) {
+            console.log("Số lượng phần tử không được âm");
+        } else if (n === 0) {
+            console.log("Mảng không có phần tử");
+        } else {
+            let array = [];
+            for (let i = 0; i < n; i++) {
+                let element = prompt(`Nhập phần tử thứ ${i + 1}:`);
+                array.push(element);
+            }
+
+            let sum = array.reduce((total, char) => {
+                if (!isNaN(char) && char.trim() !== '') {
+                    return total + parseFloat(char);
+                }
+                return total;
+            }, 0);
+
+            if (sum === 0) {
+                console.log("Không có phần tử nào là số");
+            } else {
+                console.log(`Tổng các ký tự là số trong mảng là: ${sum}`);
+            }
+        }
+    </script>
+</body>
+</html>

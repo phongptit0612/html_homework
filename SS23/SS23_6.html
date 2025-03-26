@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Falsy Values</title>
+</head>
+<body>
+    <script>
+        let array = ["", false, 0, 5, 10, "Hello world!"];
+
+        let filteredArray = array.filter(item => Boolean(item));
+
+        console.log("Mảng sau khi loại bỏ các giá trị falsy:", filteredArray);
+    </script>
+</body>
+</html>

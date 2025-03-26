@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = ['c', '2', 'd', '3']; 
+        let numericChars = array.filter(char => !isNaN(char) && char.trim() !== ''); 
+
+        if (numericChars.length > 0) {
+            console.log("Các ký tự số trong mảng là:", numericChars.join(' '));
+        } else {
+            console.log("Không có ký tự số");
+        }
+    </script>
+</body>
+</html>
