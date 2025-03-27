@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = [];
+
+        while (true) {
+            let choice = Number(prompt(
+                "1. Nhập mảng số nguyên\n" +
+                "2. Hiển thị mảng\n" +
+                "3. Tìm phần tử lớn nhất và chỉ số của nó\n" +
+                "4. Tính tổng và trung bình số dương\n" +
+                "5. Đảo ngược mảng\n" +
+                "6. Kiểm tra mảng đối xứng\n" +
+                "7. Thoát chương trình\n" +
+                "Nhập lựa chọn của bạn:"
+            ));
+
+            if (choice === 7) {
+                alert("Chương trình kết thúc.");
+                break;
+            }
+
+            switch (choice) {
+                case 1:
+                    let n = Number(prompt("Nhập số phần tử của mảng:"));
+                    array = [];
+                    for (let i = 0; i < n; i++) {
+                        array.push(Number(prompt("Nhập phần tử thứ " + (i + 1) + ":")));
+                    }
+                    break;
+
+                case 2:
+                    if (array.length === 0) {
+                        alert("Mảng rỗng.");
+                    } else {
+                        alert(array)
+                    }
+                    break;
+                case 3:
+                    if (array.length === 0) {
+                        alert("Mảng rỗng.");
+                    } else {
+                        let max = array[0], index = 0;
+                        for (let i = 1; i < array.length; i++) {
+                            if (array[i] > max) {
+                                max = array[i];
+                                index = i;
+                            }
+                        }
+                        alert("Phần tử lớn nhất là " + max + " tại vị trí " + index);
+                    }
+                    break;
+
+                case 4:
+                    let sum = 0, count = 0;
+                    for (let num of array) {
+                        if (num > 0) {
+                            sum += num;
+                            count++;
+                        }
+                    }
+                    if (count === 0) {
+                        alert("Không có số dương trong mảng.");
+                    } else {
+                        alert("Tổng các số dương: " + sum + ", Trung bình cộng: " + (sum / count));
+                    }
+                    break;
+
+                case 5:
+                    array.reverse();
+                    alert("Mảng sau khi đảo ngược: " + array.join(", "));
+                    break;
+
+                case 6:
+                    let isSymmetric = true;
+                    for (let i = 0; i < array.length / 2; i++) {
+                        if (array[i] !== array[array.length - 1 - i]) {
+                            isSymmetric = false;
+                            break;
+                        }
+                    }
+                    alert(isSymmetric ? "Mảng đối xứng." : "Mảng không đối xứng.");
+                    break;
+
+                default:
+                    alert("Lựa chọn không hợp lệ.");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

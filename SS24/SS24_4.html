@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array2D = [];
+
+        while (true) {
+            let choice = Number(prompt(
+                "1. Nhập mảng 2 chiều\n" +
+                "2. Hiển thị mảng 2 chiều\n" +
+                "3. Tính tổng các phần tử trong mảng\n" +
+                "4. Tìm phần tử lớn nhất và chỉ số của nó\n" +
+                "5. Tính trung bình cộng của một hàng\n" +
+                "6. Đảo ngược các hàng trong mảng\n" +
+                "7. Thoát chương trình\n" +
+                "Nhập lựa chọn của bạn:"
+            ));
+
+            if (choice === 7) {
+                alert("Chương trình kết thúc.");
+                break;
+            }
+
+            switch (choice) {
+                case 1:
+                    let rows = Number(prompt("Nhập số hàng:"));
+                    let cols = Number(prompt("Nhập số cột:"));
+                    array2D = [];
+                    for (let i = 0; i < rows; i++) {
+                        let row = [];
+                        for (let j = 0; j < cols; j++) {
+                            row.push(Number(prompt(`Nhập phần tử ở hàng ${i + 1}, cột ${j + 1}:`)));
+                        }
+                        array2D.push(row);
+                    }
+                    break;
+
+                case 2:
+                    if (array2D.length === 0) {
+                        alert("Mảng rỗng.");
+                    } else {
+                        let result = array2D.map(row => row.join("\t")).join("\n");
+                        console.log("Mảng 2D:\n" + result);
+                        alert("Kiểm tra console để xem mảng.");
+                    }
+                    break;
+
+                case 3:
+                    let sum = 0;
+                    for (let row of array2D) {
+                        for (let num of row) {
+                            sum += num;
+                        }
+                    }
+                    alert("Tổng các phần tử trong mảng: " + sum);
+                    break;
+
+                case 4:
+                    if (array2D.length === 0) {
+                        alert("Mảng rỗng.");
+                    } else {
+                        let max = array2D[0][0];
+                        let maxRow = 0, maxCol = 0;
+                        for (let i = 0; i < array2D.length; i++) {
+                            for (let j = 0; j < array2D[i].length; j++) {
+                                if (array2D[i][j] > max) {
+                                    max = array2D[i][j];
+                                    maxRow = i;
+                                    maxCol = j;
+                                }
+                            }
+                        }
+                        alert(`Phần tử lớn nhất là ${max} tại vị trí (${maxRow + 1}, ${maxCol + 1})`);
+                    }
+                    break;
+
+                case 5:
+                    let rowIndex = Number(prompt("Nhập chỉ số hàng (bắt đầu từ 1):")) - 1;
+                    if (rowIndex < 0 || rowIndex >= array2D.length) {
+                        alert("Hàng không hợp lệ.");
+                    } else {
+                        let rowSum = 0;
+                        for (let num of array2D[rowIndex]) {
+                            rowSum += num;
+                        }
+                        let average = rowSum / array2D[rowIndex].length;
+                        alert(`Trung bình cộng của hàng ${rowIndex + 1}: ${average}`);
+                    }
+                    break;
+
+                case 6:
+                    array2D.reverse();
+                    alert("Các hàng đã được đảo ngược.");
+                    break;
+
+                default:
+                    alert("Lựa chọn không hợp lệ.");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = [];
+        while (true) {
+            console.log('1. Nhap mang so nguyen\n' +
+                '2. Hien thi mang\n' +
+                '3. Tim cac phan tu chan le\n' +
+                '4. Tinh trung binh cong\n' +
+                '5. Xoa phan tu tai vi tri chi dinh\n' +
+                '6. Tim phan tu lon thu hai trong mang\n' +
+                '7. Thoat chuong trinh');
+
+            let choice = prompt('Nhap lua chon cua ban:');
+            if (choice === null) {
+                alert('Chuong trinh ket thuc');
+                break;
+            }
+
+            choice = Number(choice);
+            if (isNaN(choice) || choice < 1 || choice > 7) {
+                alert('Lua chon khong hop le. Vui long nhap so tu 1 den 7');
+                continue;
+            }
+
+            if (choice === 7) {
+                alert('Chuong trinh ket thuc');
+                break;
+            }
+
+            switch (choice) {
+                case 1:
+                    let n = Number(prompt('Nhap so phan tu cua mang:'));
+                    if (isNaN(n) || n <= 0) {
+                        alert('So phan tu khong hop le. Vui long nhap mot so nguyen duong.');
+                        break;
+                    }
+                    array = [];
+                    for (let i = 0; i < n; i++) {
+                        let element = Number(prompt('Nhap phan tu thu ' + (i + 1)));
+                        if (isNaN(element)) {
+                            alert('Gia tri khong hop le. Vui long nhap mot so.');
+                            i--; 
+                        } else {
+                            array.push(element);
+                        }
+                    }
+                    break;
+
+                case 2:
+                    if (array.length === 0) {
+                        alert('Mang rong.');
+                    } else {
+                        for (let i = 0; i < array.length; i++) {
+                            console.log(array[i]);
+                        }
+                    }
+                    break;
+
+                case 3:
+                    let choose = Number(prompt("1. Hien thi so chan\n2. Hien thi so le"));
+                    if (isNaN(choose) || choose < 1 || choose > 2) {
+                        alert("Lua chon khong hop le. Vui long nhap so tu 1 den 2");
+                        break;
+                    }
+                    if (choose === 1) {
+                        for (let i = 0; i < array.length; i++) {
+                            if (array[i] % 2 === 0) {
+                                console.log(array[i]);
+                            }
+                        }
+                    } else {
+                        for (let i = 0; i < array.length; i++) {
+                            if (array[i] % 2 !== 0) {
+                                console.log(array[i]);
+                            }
+                        }
+                    }
+                    break;
+
+                case 4:
+                    if (array.length === 0) {
+                        alert('Mang rong.');
+                    } else {
+                        let sum = 0;
+                        for (let i = 0; i < array.length; i++) {
+                            sum += array[i];
+                        }
+                        let average = sum / array.length;
+                        console.log('Trung binh cong cua mang la: ' + average);
+                    }
+                    break;
+                case 5:
+                    let index = Number(prompt('Nhap vi tri can xoa:'));
+                    if (isNaN(index) || index < 0 || index >= array.length) {
+                        alert('Vi tri khong hop le.');
+                    } else {
+                        array.splice(index, 1); 
+                        console.log('Mang sau khi xoa: ');
+                        for (let i = 0; i < array.length; i++) {
+                            console.log(array[i]);
+                        }
+                    }
+                    break;
+                case 6:
+                    if (array.length < 2) {
+                        alert('Mang khong du so phan tu de tim phan tu lon thu hai.');
+                    } else {
+                        let max = Math.max(...array);
+                        let secondMax = Math.min(...array);
+                        for (let i = 0; i < array.length; i++) {
+                            if (array[i] > secondMax && array[i] < max) {
+                                secondMax = array[i];
+                            }
+                        }
+                        console.log('Phan tu lon thu hai trong mang la: ' + secondMax);
+                    }
+                    break;
+                default:
+                    alert("Lua chon khong hop le.");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
