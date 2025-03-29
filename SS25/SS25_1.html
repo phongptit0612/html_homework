@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findMinValue(array) {
+            if (!Array.isArray(array)) {
+                document.write("Giá trị không hợp lệ");
+                return;
+            }
+            if (array.length === 0) {
+                document.write("Mảng không chứa phần tử");
+                return;
+            }
+            if (array.some(isNaN)) {
+                document.write("Giá trị không hợp lệ");
+                return;
+            }
+            let minValue = Math.min(...array);
+            document.write(`Phần tử nhỏ nhất trong mảng là ${minValue}`);
+        }
+        findMinValue([2, 4, 8, 1, 9]); 
+    </script>
+</body>
+</html>

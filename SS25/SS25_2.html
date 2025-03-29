@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sumTwoNumbers(a, b) {
+            if (!Number.isInteger(a) || !Number.isInteger(b)) {
+                document.write("Dữ liệu không hợp lệ");
+                return;
+            }
+            let sum = a + b;
+            document.write(`Tổng của ${a} và ${b} là ${sum}`);
+        }
+        sumTwoNumbers(2, 6); 
+    </script>
+</body>
+</html>
