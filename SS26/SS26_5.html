@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function maxNumber (array) {
+            if (!Array.isArray(array)) {
+                console.log("Invalid Array");
+                return;
+            }
+            if (array.length === 0) {
+                console.log("Array is empty");
+                return;
+            }
+            if (!array.every(item => typeof item === "number")) {
+                console.log("Invalid Array");
+                return;
+            }
+            let max = Math.max(...array);
+            let index = array.indexOf(max);
+            if (!array.every(item => typeof item === "number")) {
+                console.log("Invalid Array");
+                return;
+            } else {
+                console.log("Max number is: " + max + " at index: " + index);
+            }
+        }
+        let array1 = [10, 9, 5, 11, 24, 5];
+        let array2 = [];
+        let array3 = ["abc"];
+
+        maxNumber(array1);
+        maxNumber(array2);
+        maxNumber(array3);
+    </script>
+</body>
+</html>
