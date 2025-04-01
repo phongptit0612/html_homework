@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Tính Toán</title>
+</head>
+<body>
+    <script>
+        function add(a, b) {
+            return a + b;
+        }
+
+        function subtract(a, b) {
+            return a - b;
+        }
+
+        function multiply(a, b) {
+            return a * b;
+        }
+
+        function divide(a, b) {
+            if (b === 0) {
+                return "Không thể chia cho 0!";
+            }
+            return a / b;
+        }
+ 
+            while (true) {
+                let choice = prompt(
+                    "Chọn chức năng:\n1. Cộng\n2. Trừ\n3. Nhân\n4. Chia\n5. Thoát"
+                );
+
+                if (choice === "5") {
+                    alert("Thoát chương trình.");
+                    break;
+                }
+
+                let num1 = Number(prompt("Nhập số thứ nhất:"));
+                let num2 = Number(prompt("Nhập số thứ hai:"));
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    alert("Vui lòng nhập số hợp lệ!");
+                    continue;
+                }
+
+                let result;
+                switch (choice) {
+                    case "1":
+                        result = add(num1, num2);
+                        break;
+                    case "2":
+                        result = subtract(num1, num2);
+                        break;
+                    case "3":
+                        result = multiply(num1, num2);
+                        break;
+                    case "4":
+                        result = divide(num1, num2);
+                        break;
+                    default:
+                        alert("Lựa chọn không hợp lệ!");
+                        continue;
+                }
+
+                alert("Kết quả: " + result);
+            }
+    </script>
+</body>
+</html>

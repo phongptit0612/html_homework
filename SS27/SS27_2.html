@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let students = [];
+
+function addStudents() {
+    let count = Number(prompt("Nhập số lượng sinh viên: "));
+    for (let i = 0; i < count; i++) {
+        let name = prompt("Nhập tên đầy đủ sinh viên thứ " + (i + 1) + ":");
+        students.push(name);
+    }
+    console.log("Danh sách sinh viên đã được cập nhật.");
+}
+
+function displayStudents() {
+    if (students.length === 0) {
+        console.log("Danh sách sinh viên trống.");
+        return;
+    }
+    console.log("Danh sách sinh viên:");
+    students.forEach((student, index) => {
+        console.log((index + 1) + ". " + student);
+    });
+}
+
+function findStudent() {
+    let searchName = prompt("Nhập tên sinh viên cần tìm: ");
+    let found = students.filter(student => student.includes(searchName));
+    if (found.length > 0) {
+        console.log("Sinh viên tìm thấy:", found.join(", "));
+    } else {
+        console.log("Sinh viên không có trong danh sách.");
+    }
+}
+
+function removeStudent() {
+    let removeName = prompt("Nhập tên sinh viên cần xóa: ");
+    let index = students.findIndex(student => student === removeName);
+    if (index !== -1) {
+        students.splice(index, 1);
+        console.log("Đã xóa sinh viên:", removeName);
+    } else {
+        console.log("Không tìm thấy sinh viên trong danh sách.");
+    }
+}
+
+function showMenu() {
+    let choice;
+    do {
+        choice = prompt(
+            "Chọn chức năng:\n" +
+            "1. Nhập danh sách sinh viên\n" +
+            "2. Hiển thị danh sách sinh viên\n" +
+            "3. Tìm sinh viên theo tên\n" +
+            "4. Xóa sinh viên khỏi danh sách\n" +
+            "5. Thoát"
+        );
+
+        switch (choice) {
+            case "1":
+                addStudents();
+                break;
+            case "2":
+                displayStudents();
+                break;
+            case "3":
+                findStudent();
+                break;
+            case "4":
+                removeStudent();
+                break;
+            case "5":
+                console.log("Thoát chương trình.");
+                break;
+            default:
+                console.log("Vui lòng chọn lại.");
+        }
+    } while (choice !== "5");
+}
+showMenu()
+    </script>
+</body>
+</html>

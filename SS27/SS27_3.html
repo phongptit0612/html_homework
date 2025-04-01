@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calculateCircleArea() {
+    let radius = Number(prompt("Nhập bán kính hình tròn: "));
+    if (radius > 0) {
+        let area = Math.PI * radius * radius;
+        console.log("Diện tích hình tròn: " + area.toFixed(2));
+    } else {
+        console.log("Bán kính không hợp lệ.");
+    }
+}
+
+function calculateCirclePerimeter() {
+    let radius = Number(prompt("Nhập bán kính hình tròn: "));
+    if (radius > 0) {
+        let perimeter = 2 * Math.PI * radius;
+        console.log("Chu vi hình tròn: " + perimeter.toFixed(2));
+    } else {
+        console.log("Bán kính không hợp lệ.");
+    }
+}
+
+function calculateRectangleArea() {
+    let length = Number(prompt("Nhập chiều dài hình chữ nhật: "));
+    let width = Number(prompt("Nhập chiều rộng hình chữ nhật: "));
+    if (length > 0 && width > 0) {
+        let area = length * width;
+        console.log("Diện tích hình chữ nhật: " + area.toFixed(2));
+    } else {
+        console.log("Kích thước không hợp lệ.");
+    }
+}
+
+function calculateRectanglePerimeter() {
+    let length = Number(prompt("Nhập chiều dài hình chữ nhật: "));
+    let width = Number(prompt("Nhập chiều rộng hình chữ nhật: "));
+    if (length > 0 && width > 0) {
+        let perimeter = 2 * (length + width);
+        console.log("Chu vi hình chữ nhật: " + perimeter.toFixed(2));
+    } else {
+        console.log("Kích thước không hợp lệ.");
+    }
+}
+
+function showMenu() {
+    let choice;
+    do {
+        choice = prompt(
+            "Chọn chức năng:\n" +
+            "1. Tính diện tích hình tròn\n" +
+            "2. Tính chu vi hình tròn\n" +
+            "3. Tính diện tích hình chữ nhật\n" +
+            "4. Tính chu vi hình chữ nhật\n" +
+            "5. Thoát"
+        );
+
+        switch (choice) {
+            case "1":
+                calculateCircleArea();
+                break;
+            case "2":
+                calculateCirclePerimeter();
+                break;
+            case "3":
+                calculateRectangleArea();
+                break;
+            case "4":
+                calculateRectanglePerimeter();
+                break;
+            case "5":
+                console.log("Thoát chương trình.");
+                break;
+            default:
+                console.log("Vui lòng chọn lại.");
+        }
+    } while (choice !== "5");
+}
+
+showMenu();
+    </script>
+</body>
+</html>

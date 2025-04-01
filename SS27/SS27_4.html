@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numbers = [];
+
+function inputNumbers() {
+    let count = Number(prompt("Nhập số lượng số nguyên: "));
+    for (let i = 0; i < count; i++) {
+        let num = Number(prompt("Nhập số nguyên thứ " + (i + 1) + ":"));
+        numbers.push(num);
+    }
+    console.log("Danh sách số nguyên đã được nhập.");
+}
+
+function calculateAverage() {
+    if (numbers.length === 0) {
+        console.log("Danh sách trống.");
+        return;
+    }
+    let sum = numbers.reduce((acc, num) => acc + num, 0);
+    let average = sum / numbers.length;
+    console.log("Trung bình các số: " + average.toFixed(2));
+}
+
+function findLargestEven() {
+    let evenNumbers = numbers.filter(num => num % 2 === 0);
+    if (evenNumbers.length === 0) {
+        console.log("Không có số chẵn trong danh sách.");
+        return;
+    }
+    let maxEven = Math.max(...evenNumbers);
+    console.log("Số chẵn lớn nhất: " + maxEven);
+}
+
+function findSmallestOdd() {
+    let oddNumbers = numbers.filter(num => num % 2 !== 0);
+    if (oddNumbers.length === 0) {
+        console.log("Không có số lẻ trong danh sách.");
+        return;
+    }
+    let minOdd = Math.min(...oddNumbers);
+    console.log("Số lẻ nhỏ nhất: " + minOdd);
+}
+
+function showMenu() {
+    let choice;
+    do {
+        choice = prompt(
+            "Chọn chức năng:\n" +
+            "1. Nhập danh sách số nguyên\n" +
+            "2. Tính trung bình các số\n" +
+            "3. Tìm số chẵn lớn nhất\n" +
+            "4. Tìm số lẻ nhỏ nhất\n" +
+            "5. Thoát"
+        );
+
+        switch (choice) {
+            case "1":
+                inputNumbers();
+                break;
+            case "2":
+                calculateAverage();
+                break;
+            case "3":
+                findLargestEven();
+                break;
+            case "4":
+                findSmallestOdd();
+                break;
+            case "5":
+                console.log("Thoát chương trình.");
+                break;
+            default:
+                console.log("Vui lòng chọn lại.");
+        }
+    } while (choice !== "5");
+}
+
+showMenu();
+    </script>
+</body>
+</html>
