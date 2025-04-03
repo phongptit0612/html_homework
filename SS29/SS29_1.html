@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Manager</title>
+</head>
+<body>
+    <script>
+        let contacts = [];
+        let idCounter = 1;
+
+        function addContact() {
+            let name = prompt("Nhập tên:");
+            let email = prompt("Nhập email:");
+            let phone = prompt("Nhập số điện thoại:");
+
+            contacts.push({ id: idCounter++, name, email, phone });
+            alert("Đã thêm liên hệ thành công!");
+        }
+        function displayContacts() {
+            if (contacts.length === 0) {
+                alert("Danh bạ trống.");
+                return;
+            }
+            console.log("Danh sách liên hệ:");
+            contacts.forEach(contact => {
+                console.log(`ID: ${contact.id}, Name: ${contact.name}, Email: ${contact.email}, Phone: ${contact.phone}`);
+            });
+        }
+        function searchByPhone() {
+            let phone = prompt("Nhập số điện thoại cần tìm:");
+            let found = contacts.find(contact => contact.phone === phone);
+            if (found) {
+                alert(`Tìm thấy: ID: ${found.id}, Name: ${found.name}, Email: ${found.email}, Phone: ${found.phone}`);
+            } else {
+                alert("Không tìm thấy liên hệ nào.");
+            }
+        }
+        function updateContact() {
+            let id = parseInt(prompt("Nhập ID liên hệ cần cập nhật:"));
+            let contact = contacts.find(c => c.id === id);
+            if (!contact) {
+                alert("Không tìm thấy liên hệ.");
+                return;
+            }
+            contact.name = prompt("Nhập tên mới:", contact.name);
+            contact.email = prompt("Nhập email mới:", contact.email);
+            contact.phone = prompt("Nhập số điện thoại mới:", contact.phone);
+            alert("Cập nhật thành công!");
+        }
+        function deleteContact() {
+            let id = parseInt(prompt("Nhập ID liên hệ cần xóa:"));
+            let index = contacts.findIndex(c => c.id === id);
+            if (index === -1) {
+                alert("Không tìm thấy liên hệ.");
+                return;
+            }
+            contacts.splice(index, 1);
+            alert("Đã xóa liên hệ thành công!");
+        }
+        while (true) {
+            let choice = prompt(
+                "Chọn chức năng:\n1. Thêm liên hệ\n2. Hiển thị danh sách\n3. Tìm kiếm theo số điện thoại\n4. Cập nhật thông tin\n5. Xóa liên hệ\n6. Thoát"
+            );
+            switch (choice) {
+                case "1":
+                    addContact();
+                    break;
+                case "2":
+                    displayContacts();
+                    break;
+                case "3":
+                    searchByPhone();
+                    break;
+                case "4":
+                    updateContact();
+                    break;
+                case "5":
+                    deleteContact();
+                    break;
+                case "6":
+                    alert("Thoát chương trình.");
+                    exit();
+                default:
+                    alert("Lựa chọn không hợp lệ, vui lòng nhập lại.");
+            }
+        }
+    </script>
+</body>
+</html>
