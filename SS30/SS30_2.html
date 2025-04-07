@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toggle Dark/Light Mode</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      transition: all 0.3s ease;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      border: 2px solid gray;
+      border-radius: 5px;
+      background-color: white;
+      color: black;
+      cursor: pointer;
+    }
+
+    .light-mode {
+      background-color: white;
+      color: black;
+    }
+
+    .light-mode button {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Toggle Dark/Light Mode</h1>
+  <p>Click the button to toggle between dark and light mode for this page</p>
+  <button onclick="toggleMode()">Toggle dark mode</button>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("light-mode");
+    }
+  </script>
+
+</body>
+</html>

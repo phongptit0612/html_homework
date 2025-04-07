@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Show/Hide Text</title>
+  <style>
+    #text {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      font-size: 30px;
+      padding: 10px 20px;
+      margin-right: 10px;
+      border: 3px solid gray;
+      border-radius: 10px;
+      background-color: #e0e0e0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="text">This is a text</div>
+
+  <button id="hideBtn">Hide text</button>
+  <button id="showBtn">Show text</button>
+
+  <script>
+    var text = document.getElementById("text");
+    var hideBtn = document.getElementById("hideBtn");
+    var showBtn = document.getElementById("showBtn");
+
+    hideBtn.addEventListener("click", function() {
+      text.style.display = "none";
+    });
+
+    showBtn.addEventListener("click", function() {
+      text.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
