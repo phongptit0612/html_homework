@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Danh sách nhân viên</title>
+</head>
+<body>
+    <h1>Danh sách nhân viên</h1>
+
+    <table border="1">
+        <tr>
+            <th>STT</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>ADDRESS</th>
+        </tr>
+        <tbody id="employeeTable"></tbody>
+    </table>
+
+    <script>
+        const employees = [
+            { id: 1, name: 'John', age: 18, address: 'New York' },
+            { id: 2, name: 'Mike', age: 22, address: 'Canada' },
+            { id: 3, name: 'Linda', age: 19, address: 'California' },
+            { id: 4, name: 'Peter', age: 25, address: 'London' },
+            { id: 5, name: 'Tony', age: 17, address: 'New York' }
+        ];
+
+        let table = document.getElementById("employeeTable");
+
+        for (let i = 0; i < employees.length; i++) {
+            let row = "<tr>";
+            row += "<td>" + (i + 1) + "</td>";
+            row += "<td>" + employees[i].name + "</td>";
+            row += "<td>" + employees[i].age + "</td>";
+            row += "<td>" + employees[i].address + "</td>";
+            row += "</tr>";
+            table.innerHTML += row;
+        }
+    </script>
+</body>
+</html>

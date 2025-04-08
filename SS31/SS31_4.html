@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal {
+            display: none;
+            background-color: white;
+            width: 200px;
+            height: 200px;
+            margin-top: 30px;
+            margin-left: 400px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Model Example</h1>
+    <button>Open Modal</button>
+    <div class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal</p>
+        </div>
+    <script>
+        const modal = document.querySelector('.modal');
+        const btn = document.querySelector('button');
+        const span = document.querySelector('.close');
+
+        btn.onclick = function() {
+            modal.style.display = 'block';
+            document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
+        }
+
+        span.onclick = function() {
+            modal.style.display = 'none';
+            document.body.style.backgroundColor = 'white';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

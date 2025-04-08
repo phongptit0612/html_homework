@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Username</p>
+    <input type="text" id="username" placeholder="Enter your username"> 
+    <p>Password</p> 
+    <input type="password" id="password" placeholder="Enter your password"> <br><br>
+    <button class="btr">Login</button>
+
+    <script>
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const loginButton = document.querySelector('.btr');
+
+        loginButton.addEventListener('click', function() {
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+
+            if (username === 'admin' && password === '123456') {
+                console.log('Login successful!');
+            } else {
+                console.log('Login failed!');
+            }
+        });
+    </script>
+</body>
+</html>

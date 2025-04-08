@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+    <style>
+        .box {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <p>Change background color</p>
+    <p>Click on a box</p>
+
+    <div class="container">
+        <div class="box box1">xanh</div>
+        <div class="box box2">do</div>
+        <div class="box box3">tim</div>
+    </div>
+
+    <script>
+        document.querySelector('.box1').addEventListener('click', function() {
+            document.body.style.backgroundColor = 'green';
+        });
+
+        document.querySelector('.box2').addEventListener('click', function() {
+            document.body.style.backgroundColor = 'red';
+        });
+
+        document.querySelector('.box3').addEventListener('click', function() {
+            document.body.style.backgroundColor = 'purple';
+        });
+    </script>
+</body>
+</html>
