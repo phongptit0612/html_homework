@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thanh Tiến Trình</title>
+  <style>
+    .container {
+      width: 300px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    .progress-bar {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 30px;
+      margin-bottom: 20px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: #4caf50;
+      transition: width 0.3s;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="progress-bar">
+      <div class="progress-fill" id="fill"></div>
+    </div>
+    <button onclick="changeProgress(10)">Tăng tiến trình</button>
+    <button onclick="changeProgress(-10)">Giảm tiến trình</button>
+  </div>
+
+  <script>
+    let progress = 0;
+
+    function changeProgress(amount) {
+      progress += amount;
+      if (progress > 100) progress = 100;
+      if (progress < 0) progress = 0;
+      document.getElementById("fill").style.width = progress + "%";
+    }
+  </script>
+</body>
+</html>
