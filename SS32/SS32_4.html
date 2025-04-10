@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="email" id="emailInput" placeholder="Enter your email">
+    <button id="checkEmail" onclick="checkEmail()">Check</button>
+    <p id="message"></p>
+
+    <script>
+        const emailGet = document.getElementById("emailInput");
+        const message = document.getElementById("message");
+
+        function checkEmail () {
+            const email = emailGet.value;
+            if (email.endsWith(".com") && email.includes("@")) {
+                message.textContent = "Valid email!";
+                message.style.color = "green";
+            } else {
+                message.textContent = "Invalid email!";
+                message.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <input id="subject" placeholder="nhập tên môn học">
+  <button onclick="add()">Thêm môn học</button>
+
+  <ol id="list">
+    <li>Toán</li>
+    <li>Lý</li>
+    <li>Hóa</li>
+  </ol>
+
+  <script>
+    function add() {
+      let name = document.getElementById("subject").value.trim();
+      if (name === "") {
+        alert("tên môn học không được để trống!");
+        return;
+      }
+      document.getElementById("list").innerHTML += `<li>${name}</li>`;
+      document.getElementById("subject").value = "";
+    }
+  </script>
+</body>
+</html>

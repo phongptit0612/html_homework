@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Click me!</button>
+    <p>Time clicked: </p>
+    <script>
+        let clickedCount = 0;
+        const button = document.querySelector('button');
+        const paragraph = document.querySelector('p');
+        button.addEventListener('click', () => {
+            clickedCount++;
+            paragraph.textContent = `Time clicked: ${clickedCount}`;
+        });
+    </script>
+</body>
+</html>

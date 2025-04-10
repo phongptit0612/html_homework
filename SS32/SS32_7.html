@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Zoom</title>
+  <style>
+    img {
+      width: 300px;
+      cursor: zoom-in;
+      transition: 0.3s;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .overlay img {
+      width: 80%;
+      max-width: 800px;
+      cursor: zoom-out;
+    }
+  </style>
+</head>
+<body>
+
+  <img id="myImage" src="https://preview.redd.it/4bqhih6hof7a1.jpg?width=640&crop=smart&auto=webp&s=878052bcb0b4cf9f934c91eb6435f835a8c6282b" alt="click to zoom"/>
+
+  <script>
+    const img = document.getElementById("myImage");
+
+    img.addEventListener("click", function () {
+      const overlay = document.createElement("div");
+      overlay.classList.add("overlay");
+
+      const zoomedImg = document.createElement("img");
+      zoomedImg.src = img.src;
+
+      overlay.appendChild(zoomedImg);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener("click", function () {
+        overlay.remove();
+      });
+    });
+  </script>
+
+</body>
+</html>
