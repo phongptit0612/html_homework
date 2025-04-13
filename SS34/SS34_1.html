@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Ẩn/Hiện Mật Khẩu</title>
+  <style>
+    .password-container {
+      position: relative;
+      width: 250px;
+    }
+    input[type="password"],
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      padding-right: 40px;
+      font-size: 16px;
+    }
+    .toggle-eye {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Nhập mật khẩu:</h3>
+  <div class="password-container">
+    <input type="password" id="passwordInput" placeholder="Nhập mật khẩu">
+    <span class="toggle-eye" onclick="togglePassword()">👁️</span>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const input = document.getElementById("passwordInput");
+      const eye = document.querySelector(".toggle-eye");
+      if (input.type === "password") {
+        input.type = "text";
+        eye.textContent = "👁️"; 
+      } else {
+        input.type = "password";
+        eye.textContent = "👁️"; 
+      }
+    }
+  </script>
+
+</body>
+</html>
