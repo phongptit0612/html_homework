@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Lọc sản phẩm theo danh mục</title>
+  <style>
+    select, button {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    li {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    strong {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <select id="categorySelect">
+    <option value="">-- Lựa chọn danh mục --</option>
+    <option value="Đồ ăn">Đồ ăn</option>
+    <option value="Nước">Nước</option>
+    <option value="Dụng cụ">Dụng cụ</option>
+  </select>
+  <button onclick="locSanPham()">Lọc</button>
+
+  <ul id="resultList"></ul>
+
+  <script>
+    let dish = [
+      { name: 'Rau sạch', category: 'Đồ ăn' },
+      { name: 'Thịt lợn', category: 'Đồ ăn' },
+      { name: 'Pepsi không calo', category: 'Nước' },
+      { name: 'Cocacola', category: 'Nước' },
+      { name: 'Cờ lê', category: 'Dụng cụ' },
+      { name: 'Tuy vít', category: 'Dụng cụ' }
+    ];
+
+    function locSanPham() {
+      let selectedCategory = document.getElementById("categorySelect").value;
+      let resultList = document.getElementById("resultList");
+      resultList.innerHTML = "";
+
+      let filteredDish = selectedCategory
+        ? dish.filter(item => item.category === selectedCategory)
+        : dish;
+
+      filteredDish.forEach(item => {
+        let li = document.createElement("li");
+        li.innerHTML = `<strong>Tên đồ ăn:</strong> ${item.name} - <strong>Danh mục:</strong> ${item.category}`;
+        resultList.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>
