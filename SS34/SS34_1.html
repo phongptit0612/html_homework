@@ -1,51 +1,96 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ẩn/Hiện Mật Khẩu</title>
+  <title>Register</title>
   <style>
-    .password-container {
-      position: relative;
-      width: 250px;
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-    input[type="password"],
-    input[type="text"] {
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    input {
       width: 100%;
       padding: 10px;
-      padding-right: 40px;
-      font-size: 16px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
     }
-    .toggle-eye {
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      cursor: pointer;
-      font-size: 18px;
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .error {
+      color: red;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
-
-  <h3>Nhập mật khẩu:</h3>
-  <div class="password-container">
-    <input type="password" id="passwordInput" placeholder="Nhập mật khẩu">
-    <span class="toggle-eye" onclick="togglePassword()">👁️</span>
+  <div class="form-container">
+    <h2>Register</h2>
+    <div id="error" class="error"></div>
+    <input type="email" id="email" placeholder="Enter your email address">
+    <input type="password" id="password" placeholder="Enter your password">
+    <input type="password" id="confirmPassword" placeholder="Enter your confirm password">
+    <button onclick="register()">Register</button>
   </div>
 
   <script>
-    function togglePassword() {
-      const input = document.getElementById("passwordInput");
-      const eye = document.querySelector(".toggle-eye");
-      if (input.type === "password") {
-        input.type = "text";
-        eye.textContent = "👁️"; 
-      } else {
-        input.type = "password";
-        eye.textContent = "👁️"; 
+    function register() {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const errorDiv = document.getElementById('error');
+
+      errorDiv.innerText = '';
+
+      if (!email) {
+        errorDiv.innerText = 'Email không được bỏ trống';
+        return;
       }
+      if (!password) {
+        errorDiv.innerText = 'Password không được bỏ trống';
+        return;
+      }
+      if (password !== confirmPassword) {
+        errorDiv.innerText = 'Xác nhận mật khẩu không trùng khớp';
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem('users')) || [];
+      let emailExists = users.some(user => user.email === email);
+
+      if (emailExists) {
+        errorDiv.innerText = 'Email đã tồn tại';
+        return;
+      }
+
+      users.push({ email, password });
+      localStorage.setItem('users', JSON.stringify(users));
+
+      alert('Đăng ký thành công!');
+
+      document.getElementById('email').value = '';
+      document.getElementById('password').value = '';
+      document.getElementById('confirmPassword').value = '';
     }
   </script>
-
 </body>
 </html>

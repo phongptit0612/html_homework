@@ -1,38 +1,181 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Đếm ký tự</title>
+  <title>Task Management</title>
   <style>
-    textarea {
-      width: 300px;
-      height: 80px;
-      font-size: 16px;
-    }
-    #result {
-      font-size: 20px;
-      margin-top: 10px;
-    }
-    button {
-      margin-top: 10px;
-      font-size: 18px;
-      padding: 5px 10px;
-    }
+    body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f8f9fa;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.form input, .form select, .form button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+button {
+  cursor: pointer;
+}
+
+button.edit {
+  background: #ddd;
+}
+
+button.delete {
+  background: #f66;
+  color: white;
+}
+
   </style>
 </head>
 <body>
-
-  <textarea id="inputText" placeholder="Nhập nội dung vào đây..."></textarea>
-  <div id="result">0 ký tự</div>
-  <button onclick="demKyTu()">kiểm tra</button>
+  <div class="container">
+    <h1>Task Management</h1>
+    <div class="form">
+      <input type="text" id="content" placeholder="Content" />
+      <input type="date" id="dueDate" />
+      <select id="status">
+        <option value="">Choose status</option>
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <input type="text" id="assignedTo" placeholder="Username" />
+      <button onclick="handleSubmit()">Submit</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Content</th>
+          <th>Due date</th>
+          <th>Status</th>
+          <th>Assigned to</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="taskTable"></tbody>
+    </table>
+  </div>
 
   <script>
-    function demKyTu() {
-      const text = document.getElementById("inputText").value;
-      const soKyTu = text.length;
-      document.getElementById("result").textContent = soKyTu + " ký tự";
-    }
-  </script>
+    let courses = JSON.parse(localStorage.getItem("courses")) || [
+  {
+    id: 1,
+    content: 'Learn Javascript Session 01',
+    dueDate: '2023-04-17',
+    status: 'Pending',
+    assignedTo: 'Anh Bách',
+  },
+  {
+    id: 2,
+    content: 'Learn Javascript Session 2',
+    dueDate: '2023-04-17',
+    status: 'Pending',
+    assignedTo: 'Lâm',
+  },
+  {
+    id: 3,
+    content: 'Learn CSS Session 1',
+    dueDate: '2023-04-17',
+    status: 'Pending',
+    assignedTo: 'Hiếu Ci ớt ớt',
+  }
+];
 
+let editingId = null;
+
+function renderTasks() {
+  const table = document.getElementById("taskTable");
+  table.innerHTML = "";
+  courses.forEach((task, index) => {
+    table.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${task.content}</td>
+        <td>${task.dueDate}</td>
+        <td>${task.status}</td>
+        <td>${task.assignedTo}</td>
+        <td>
+          <button class="edit" onclick="editTask(${task.id})">Sửa</button>
+          <button class="delete" onclick="deleteTask(${task.id})">Xóa</button>
+        </td>
+      </tr>
+    `;
+  });
+}
+
+function handleSubmit() {
+  const content = document.getElementById("content").value;
+  const dueDate = document.getElementById("dueDate").value;
+  const status = document.getElementById("status").value;
+  const assignedTo = document.getElementById("assignedTo").value;
+
+  if (!content || !dueDate || !status || !assignedTo) return alert("Please fill all fields");
+
+  if (editingId) {
+    courses = courses.map(task =>
+      task.id === editingId ? { id: task.id, content, dueDate, status, assignedTo } : task
+    );
+    editingId = null;
+  } else {
+    const id = courses.length ? Math.max(...courses.map(t => t.id)) + 1 : 1;
+    courses.push({ id, content, dueDate, status, assignedTo });
+  }
+
+  localStorage.setItem("courses", JSON.stringify(courses));
+  resetForm();
+  renderTasks();
+}
+
+function editTask(id) {
+  const task = courses.find(t => t.id === id);
+  document.getElementById("content").value = task.content;
+  document.getElementById("dueDate").value = task.dueDate;
+  document.getElementById("status").value = task.status;
+  document.getElementById("assignedTo").value = task.assignedTo;
+  editingId = id;
+}
+
+function deleteTask(id) {
+  if (confirm("Are you sure you want to delete this task?")) {
+    courses = courses.filter(task => task.id !== id);
+    localStorage.setItem("courses", JSON.stringify(courses));
+    renderTasks();
+  }
+}
+
+function resetForm() {
+  document.getElementById("content").value = "";
+  document.getElementById("dueDate").value = "";
+  document.getElementById("status").value = "";
+  document.getElementById("assignedTo").value = "";
+}
+
+window.onload = renderTasks;
+
+  </script>
 </body>
 </html>

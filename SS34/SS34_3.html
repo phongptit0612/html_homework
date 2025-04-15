@@ -1,58 +1,154 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lọc sản phẩm theo danh mục</title>
+  <title>Auth Page</title>
   <style>
-    select, button {
-      font-size: 16px;
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 320px;
+      display: none;
+    }
+    .form-container.active {
+      display: block;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .error {
+      color: red;
       margin-bottom: 10px;
     }
-    li {
-      font-size: 18px;
-      margin-bottom: 5px;
+    .toggle {
+      text-align: center;
+      margin-top: 10px;
     }
-    strong {
-      font-weight: bold;
+    .toggle a {
+      cursor: pointer;
+      color: #007bff;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-  <select id="categorySelect">
-    <option value="">-- Lựa chọn danh mục --</option>
-    <option value="Đồ ăn">Đồ ăn</option>
-    <option value="Nước">Nước</option>
-    <option value="Dụng cụ">Dụng cụ</option>
-  </select>
-  <button onclick="locSanPham()">Lọc</button>
+  <!-- Login Form -->
+  <div class="form-container active" id="loginForm">
+    <h2>Login</h2>
+    <div id="loginError" class="error"></div>
+    <input type="email" id="loginEmail" placeholder="Enter your email address">
+    <input type="password" id="loginPassword" placeholder="Enter your password">
+    <button onclick="login()">Login</button>
+    <div class="toggle">
+      Chưa có tài khoản? <a onclick="toggleForm('registerForm')">Đăng ký</a>
+    </div>
+  </div>
 
-  <ul id="resultList"></ul>
+  <!-- Register Form -->
+  <div class="form-container" id="registerForm">
+    <h2>Register</h2>
+    <div id="registerError" class="error"></div>
+    <input type="email" id="regEmail" placeholder="Enter your email address">
+    <input type="password" id="regPassword" placeholder="Enter your password">
+    <input type="password" id="confirmPassword" placeholder="Confirm your password">
+    <button onclick="register()">Register</button>
+    <div class="toggle">
+      Đã có tài khoản? <a onclick="toggleForm('loginForm')">Đăng nhập</a>
+    </div>
+  </div>
 
   <script>
-    let dish = [
-      { name: 'Rau sạch', category: 'Đồ ăn' },
-      { name: 'Thịt lợn', category: 'Đồ ăn' },
-      { name: 'Pepsi không calo', category: 'Nước' },
-      { name: 'Cocacola', category: 'Nước' },
-      { name: 'Cờ lê', category: 'Dụng cụ' },
-      { name: 'Tuy vít', category: 'Dụng cụ' }
-    ];
+    function toggleForm(formId) {
+      document.getElementById('loginForm').classList.remove('active');
+      document.getElementById('registerForm').classList.remove('active');
+      document.getElementById(formId).classList.add('active');
+      // Clear previous errors
+      document.getElementById('loginError').innerText = '';
+      document.getElementById('registerError').innerText = '';
+    }
 
-    function locSanPham() {
-      let selectedCategory = document.getElementById("categorySelect").value;
-      let resultList = document.getElementById("resultList");
-      resultList.innerHTML = "";
+    function register() {
+      const email = document.getElementById('regEmail').value.trim();
+      const password = document.getElementById('regPassword').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const errorDiv = document.getElementById('registerError');
 
-      let filteredDish = selectedCategory
-        ? dish.filter(item => item.category === selectedCategory)
-        : dish;
+      errorDiv.innerText = '';
 
-      filteredDish.forEach(item => {
-        let li = document.createElement("li");
-        li.innerHTML = `<strong>Tên đồ ăn:</strong> ${item.name} - <strong>Danh mục:</strong> ${item.category}`;
-        resultList.appendChild(li);
-      });
+      if (!email) {
+        errorDiv.innerText = 'Email không được bỏ trống';
+        return;
+      }
+      if (!password) {
+        errorDiv.innerText = 'Password không được bỏ trống';
+        return;
+      }
+      if (password !== confirmPassword) {
+        errorDiv.innerText = 'Xác nhận mật khẩu không trùng khớp';
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem('users')) || [];
+      if (users.some(user => user.email === email)) {
+        errorDiv.innerText = 'Email đã tồn tại';
+        return;
+      }
+
+      users.push({ email, password });
+      localStorage.setItem('users', JSON.stringify(users));
+
+      alert('Đăng ký thành công!');
+      toggleForm('loginForm');
+    }
+
+    function login() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      const errorDiv = document.getElementById('loginError');
+
+      errorDiv.innerText = '';
+
+      if (!email) {
+        errorDiv.innerText = 'Email không được bỏ trống';
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (!user) {
+        errorDiv.innerText = 'Email hoặc mật khẩu không đúng';
+        return;
+      }
+
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      window.location.href = 'task.html'; // redirect to your task manager
     }
   </script>
 
