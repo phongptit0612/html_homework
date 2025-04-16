@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product List with Search</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  padding: 8px;
+  width: 300px;
+  font-size: 16px;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.e {
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.e img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.name {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.description {
+  font-size: 14px;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.price {
+  color: green;
+  font-weight: bold;
+}
+
+.button button {
+  margin-top: 10px;
+  background-color: blue;
+}
+
+    </style>
+<body>
+  <h1>Danh sách sản phẩm</h1>
+  
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search..." />
+    <button onclick="searchProducts()">Search</button>
+  </div>
+
+  <div id="productList" class="product-list"></div>
+
+
+  <script>
+    const products = [
+  {
+    name: "Laptop Dell XPS 15",
+    description: "Laptop cao cấp với màn hình 15 inch, CPU Intel Core i7 và RAM 16GB.",
+    price: "35,990,000 VND",
+    image: "https://via.placeholder.com/200x150?text=Dell+XPS+15"
+  },
+  {
+    name: "iPhone 15 Pro Max",
+    description: "Điện thoại flagship của Apple với camera 48MP và chip A17 Pro.",
+    price: "32,990,000 VND",
+    image: "https://via.placeholder.com/200x150?text=iPhone+15+Pro+Max"
+  },
+  {
+    name: "Tai nghe Sony WH-1000XM5",
+    description: "Tai nghe chống ồn tốt nhất với thời lượng pin lên đến 30 giờ.",
+    price: "7,990,000 VND",
+    image: "https://via.placeholder.com/200x150?text=Sony+XM5"
+  },
+  {
+    name: "Loa JBL Charge 5",
+    description: "Loa Bluetooth chống nước với âm bass mạnh mẽ.",
+    price: "3,990,000 VND",
+    image: "https://via.placeholder.com/200x150?text=JBL+Charge+5"
+  }
+];
+
+function renderProducts(list) {
+  const container = document.getElementById("productList");
+  container.innerHTML = "";
+
+  list.forEach(product => {
+    const productDiv = document.createElement("div");
+    productDiv.className = "e";
+
+    productDiv.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" />
+      <div class="name">${product.name}</div>
+      <div class="description">${product.description}</div>
+      <div class="price">${product.price}</div>
+      <div class="button"><button>Buy</button></div>
+    `;
+
+    container.appendChild(productDiv);
+  });
+}
+
+function searchProducts() {
+  const keyword = document.getElementById("searchInput").value.toLowerCase();
+  const filtered = products.filter(p => p.name.toLowerCase().includes(keyword));
+  renderProducts(filtered);
+}
+
+renderProducts(products);
+
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

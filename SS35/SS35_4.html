@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách nhân viên Rikkei</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .pagination li a {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="container my-5">
+
+  <h2 class="text-center fw-bold mb-4">Danh sách nhân viên Rikkei</h2>
+
+
+  <div class="row mb-3">
+    <div class="col-md-5 mb-2">
+      <input type="text" id="name" class="form-control" placeholder="tên nhân viên">
+    </div>
+    <div class="col-md-5 mb-2">
+      <input type="text" id="position" class="form-control" placeholder="chức vụ">
+    </div>
+    <div class="col-md-2 mb-2 text-center">
+      <button class="btn btn-outline-primary w-100" onclick="addEmployee()">thêm nhân viên</button>
+    </div>
+  </div>
+
+
+  <table class="table table-bordered text-center">
+    <thead class="table-light">
+      <tr>
+        <th>STT</th>
+        <th>Tên</th>
+        <th>Chức vụ</th>
+      </tr>
+    </thead>
+    <tbody id="employeeTableBody">
+
+    </tbody>
+  </table>
+
+
+  <nav class="d-flex justify-content-center">
+    <ul class="pagination" id="pagination">
+
+    </ul>
+  </nav>
+
+  <script>
+  const employees = [
+  { name: "Nguyễn Văn A", position: "Developer" },
+  { name: "Trần Thị B", position: "Designer" },
+  { name: "Phạm Văn C", position: "Project Manager" },
+  { name: "Lê Văn D", position: "Tester" },
+  { name: "Ngô Thị E", position: "HR" },
+  { name: "Vũ Văn F", position: "BA" },
+  { name: "Trịnh Văn G", position: "Scrum Master" },
+  { name: "Phan Thị H", position: "UX Designer" }
+];
+
+    const rowsPerPage = 3;
+    let currentPage = 1;
+
+    function renderTable() {
+      const tableBody = document.getElementById("employeeTableBody");
+      tableBody.innerHTML = "";
+
+      const start = (currentPage - 1) * rowsPerPage;
+      const end = start + rowsPerPage;
+      const paginatedItems = employees.slice(start, end);
+
+      paginatedItems.forEach((emp, index) => {
+        const row = `<tr>
+            <td>${start + index + 1}</td>
+            <td>${emp.name}</td>
+            <td>${emp.position}</td>
+        </tr>`;
+        tableBody.innerHTML += row;
+      });
+
+      renderPagination();
+    }
+
+    function renderPagination() {
+      const pageCount = Math.ceil(employees.length / rowsPerPage);
+      const pagination = document.getElementById("pagination");
+      pagination.innerHTML = "";
+
+      const prevClass = currentPage === 1 ? "disabled" : "";
+      pagination.innerHTML += `
+        <li class="page-item ${prevClass}">
+          <a class="page-link" onclick="changePage(${currentPage - 1})">Previous</a>
+        </li>
+      `;
+
+      for (let i = 1; i <= pageCount; i++) {
+        const active = i === currentPage ? "active" : "";
+        pagination.innerHTML += `
+          <li class="page-item ${active}">
+            <a class="page-link" onclick="changePage(${i})">${i}</a>
+          </li>
+        `;
+      }
+
+      const nextClass = currentPage === pageCount ? "disabled" : "";
+      pagination.innerHTML += `
+        <li class="page-item ${nextClass}">
+          <a class="page-link" onclick="changePage(${currentPage + 1})">Next</a>
+        </li>
+      `;
+    }
+
+    function changePage(page) {
+      const pageCount = Math.ceil(employees.length / rowsPerPage);
+      if (page < 1 || page > pageCount) return;
+      currentPage = page;
+      renderTable();
+    }
+
+    function addEmployee() {
+      const nameInput = document.getElementById("name");
+      const positionInput = document.getElementById("position");
+
+      const name = nameInput.value.trim();
+      const position = positionInput.value.trim();
+
+      if (name && position) {
+        employees.push({ name, position });
+        nameInput.value = "";
+        positionInput.value = "";
+
+        currentPage = Math.ceil(employees.length / rowsPerPage); // Nhảy đến trang cuối
+        renderTable();
+      } else {
+        alert("Vui lòng nhập đầy đủ tên và chức vụ!");
+      }
+    }
+
+    renderTable();
+  </script>
+
+</body>
+</html>
