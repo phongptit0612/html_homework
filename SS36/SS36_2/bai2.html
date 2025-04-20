@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bạn thích món nào nhất?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .food-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .food-item {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: left;
+    }
+
+    .food-item img {
+      width: 90px;
+      height: 70px;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+
+    .food-info h3 {
+      margin: 0 0 5px;
+    }
+
+    .likes {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #e74c3c;
+    }
+
+    .like-btn {
+      padding: 6px 14px;
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .like-btn:hover {
+      background-color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Bạn thích món nào nhất? 🍜</h2>
+
+  <div class="food-list" id="foodList"></div>
+
+  <script>
+    const defaultFoods = [
+      {
+        id: 1,
+        name: "Bún bò Huế",
+        image: "https://i.ytimg.com/vi/CSl91LG03Ns/maxresdefault.jpg",
+        likes: 0,
+      },
+      {
+        id: 2,
+        name: "Phở bò Hà Nội",
+        image: "https://static.vinwonders.com/production/pho-bo-ha-noi.jpg",
+        likes: 0,
+      },
+      {
+        id: 3,
+        name: "Cơm tấm Sài Gòn",
+        image: "https://static.vinwonders.com/production/com-tam-sai-gon-thumb.jpg",
+        likes: 0,
+      }
+    ];
+
+    const STORAGE_KEY = "likedFoods";
+
+    // Load danh sách món ăn từ localStorage hoặc mặc định
+    let foods = JSON.parse(localStorage.getItem(STORAGE_KEY)) || defaultFoods;
+
+    const foodListEl = document.getElementById("foodList");
+
+    function renderFoods() {
+      foodListEl.innerHTML = "";
+
+      foods.forEach(food => {
+        const item = document.createElement("div");
+        item.className = "food-item";
+
+        item.innerHTML = `
+          <img src="${food.image}" alt="${food.name}">
+          <div class="food-info">
+            <h3>${food.name}</h3>
+            <div class="likes">❤️ ${food.likes} lượt thích</div>
+            <button class="like-btn" onclick="likeFood(${food.id})">Thích +1</button>
+          </div>
+        `;
+
+        foodListEl.appendChild(item);
+      });
+    }
+
+    function likeFood(id) {
+      const index = foods.findIndex(f => f.id === id);
+      if (index !== -1) {
+        foods[index].likes += 1;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(foods));
+        renderFoods();
+      }
+    }
+
+    // Gọi render ban đầu
+    renderFoods();
+  </script>
+</body>
+</html>

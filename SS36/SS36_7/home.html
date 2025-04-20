@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang chủ</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    button { padding: 10px 20px; background: dodgerblue; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h2 id="welcome-msg">Xin chào!</h2>
+        <p>Chào mừng bạn đến với hệ thống mini!</p>
+        <button onclick="logout()">Đăng xuất</button>
+      </div>
+
+  <script>
+    const currentUser = localStorage.getItem("loggedInUser");
+    if (!currentUser) {
+      window.location.href = "bai7.html";
+    } else {
+      document.getElementById("welcome-msg").textContent = `Xin chào, ${currentUser}! 👋`;
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "bai7.html";
+    }
+  </script>
+</body>
+</html>

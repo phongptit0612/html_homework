@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng nhập / Đăng ký</title>
+  <link rel="stylesheet" href="bai7.css">
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    .form { display: none; max-width: 300px; margin: auto; }
+    input { display: block; width: 100%; margin: 10px 0; padding: 8px; }
+    button { padding: 10px; background: dodgerblue; color: white; border: none; cursor: pointer; }
+    a { display: block; margin-top: 10px; cursor: pointer; color: blue; text-decoration: underline; }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="form-title">Đăng nhập</h1>
+    
+        <div id="login-form" class="form">
+          <input type="text" id="login-username" placeholder="Tên đăng nhập">
+          <input type="password" id="login-password" placeholder="Mật khẩu">
+          <label><input type="checkbox" id="remember-me"> Ghi nhớ tôi</label>
+          <button onclick="login()">Đăng nhập</button>
+          <a onclick="toggleForm()">Chưa có tài khoản? Đăng ký</a>
+        </div>
+    
+        <div id="register-form" class="form">
+          <input type="text" id="register-username" placeholder="Tên đăng nhập">
+          <input type="password" id="register-password" placeholder="Mật khẩu">
+          <button onclick="register()">Đăng ký</button>
+          <a onclick="toggleForm()">Quay lại đăng nhập</a>
+        </div>
+    
+        <p id="message"></p>
+      </div>
+  <script src="bai7.js"></script>
+</body>
+</html>

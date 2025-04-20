@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quản lý công việc</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+    h2 {
+      margin: 0 0 10px;
+    }
+    .board {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+    }
+    .column {
+      flex: 1;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px #ccc;
+    }
+    .column h3 {
+      text-align: center;
+      margin-top: 0;
+    }
+    .task {
+      background: #f9f9f9;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .task span {
+      flex: 1;
+    }
+    button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .add-task {
+      margin-bottom: 15px;
+      display: flex;
+      gap: 10px;
+    }
+    input[type="text"] {
+      flex: 1;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .add-btn {
+      background: dodgerblue;
+      color: white;
+    }
+    .move-btn {
+      background: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <h2>📂 Quản lý công việc (Task Board)</h2>
+
+  <div class="add-task">
+    <input type="text" id="taskInput" placeholder="Nhập tên công việc...">
+    <button class="add-btn" onclick="addTask()">Thêm</button>
+  </div>
+
+  <div class="board">
+    <div class="column" id="pending">
+      <h3>⏳ Chờ xử lý</h3>
+    </div>
+    <div class="column" id="doing">
+      <h3>🛠️ Đang làm</h3>
+    </div>
+    <div class="column" id="done">
+      <h3>✅ Hoàn thành</h3>
+    </div>
+  </div>
+
+  <script>
+    let tasks = JSON.parse(localStorage.getItem("taskBoard")) || [];
+
+    function saveTasks() {
+      localStorage.setItem("taskBoard", JSON.stringify(tasks));
+    }
+
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const name = input.value.trim();
+      if (!name) return alert("Tên công việc không được để trống!");
+      tasks.push({ name, status: "pending" });
+      input.value = "";
+      saveTasks();
+      render();
+    }
+
+    function changeStatus(index) {
+      if (tasks[index].status === "pending") tasks[index].status = "doing";
+      else if (tasks[index].status === "doing") tasks[index].status = "done";
+      saveTasks();
+      render();
+    }
+
+    function render() {
+      ["pending", "doing", "done"].forEach(status => {
+        const column = document.getElementById(status);
+        column.innerHTML = `<h3>${
+          status === "pending" ? "⏳ Chờ xử lý" : status === "doing" ? "🛠️ Đang làm" : "✅ Hoàn thành"
+        }</h3>`;
+        tasks
+          .filter(task => task.status === status)
+          .forEach((task, idx) => {
+            const div = document.createElement("div");
+            div.className = "task";
+            div.innerHTML = `<span>${task.name}</span>`;
+            if (status !== "done") {
+              div.innerHTML += `<button class="move-btn" onclick="changeStatus(${tasks.indexOf(task)})">Chuyển tiếp</button>`;
+            }
+            column.appendChild(div);
+          });
+      });
+    }
+
+    window.onload = render;
+  </script>
+</body>
+</html>
